@@ -19,12 +19,6 @@ jobs:
         with:
           java-version: 21
           distribution: 'zulu' # Alternative distribution options are available.
-
-      - name: Change directory to project root
-        run: |
-          ls
-          cd SpringBoot_SonarQube
-
           
       - name: Cache SonarQube packages
         uses: actions/cache@v4
@@ -48,5 +42,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           ls
-          cd SpringBoot_SonarQube
+          cd SpringBoot_SonarQube #I added this line manually...............
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ugron_springboot-sonarqube
