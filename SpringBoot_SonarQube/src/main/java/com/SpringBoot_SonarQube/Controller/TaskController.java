@@ -1,6 +1,7 @@
 package com.SpringBoot_SonarQube.Controller;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,6 +25,12 @@ public class TaskController {
 
 	@GetMapping("/")
 	public List<Task> getTasks() {
+
+		Random random= new Random();
+		long num= random.nextLong();
+
+		taskRepo.save(new Task("Deepak Ugale_"+num, "This is "+num+" an test record"));
+
 		return taskRepo.findAll();
 	}
 
